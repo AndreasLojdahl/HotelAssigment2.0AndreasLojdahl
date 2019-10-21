@@ -488,11 +488,7 @@ public class HotelProgram {
         return null;
     }
 
-    public void showPeopleInRooms(){
-        for(int i = 0; i < roomsInHotel.size(); i++){
-
-        }
-    }
+    
 
 
 
