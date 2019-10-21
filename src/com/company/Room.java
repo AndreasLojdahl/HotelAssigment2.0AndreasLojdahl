@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 public class Room implements Serializable {
 
+    /**
+     * Room
+     * Room Class
+     */
+
     private ArrayList<Resident> residentsInRoom = new ArrayList<>();
     private int roomNumber;
     private RoomId roomType;
@@ -28,6 +33,9 @@ public class Room implements Serializable {
 
     }
 
+    /**
+     * Displays if room is available for check in.
+     */
     public void showRoomAvailability(){
         if(residentsInRoom.size() == 0){
             System.out.println("Room nr: " + roomNumber + " Roomtype: " + roomType.roomIdType + ": Is Available.");
@@ -46,6 +54,11 @@ public class Room implements Serializable {
         }
     }
 
+    /**
+     * Method to check if room has residents checked in.
+     * @param number of room
+     * @return true if room is available.
+     */
     public boolean isAvailable(int number){
 
         if(residentsInRoom.size() == 0 && roomNumber == number){
@@ -62,6 +75,9 @@ public class Room implements Serializable {
         return roomType;
     }
 
+    /**
+     * Displays people in room.
+     */
     public void showPeopleInRoom(){
 
         for(Resident resident: residentsInRoom){

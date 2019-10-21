@@ -55,6 +55,9 @@ public class HotelProgram {
         View.getInstance().showMessage("*** WELCOME BACK ANYTIME! ***");
     }
 
+    /**
+     * Method creates 10 hotel rooms
+     */
     public void createRooms() {
 
         //Creating 10 rooms
@@ -89,7 +92,7 @@ public class HotelProgram {
                 employeesInHotel.add(employee);
             }
         }
-
+        /*
         ArrayList<Room> roomsFromFile = (ArrayList<Room>) FilesUtility.loadObject("rooms.ser");
         if(roomsFromFile != null){
 
@@ -97,6 +100,8 @@ public class HotelProgram {
                 roomsInHotel.add(room);
             }
         }
+
+         */
     }
 
     public void saveToFile() {
@@ -108,6 +113,9 @@ public class HotelProgram {
 
     }
 
+    /**
+     * Check if all rooms are occupied if not checks in resident, depending on room type and chosen resident per room.
+     */
     public void checkIn() {
 
         boolean isEmpty;
@@ -291,17 +299,17 @@ public class HotelProgram {
 
         switch (whichWorkerChoice) {
             case 1:
-                createPerson(adminsInHotel,MAX_ADMINS,"admin");
+                createPerson(adminsInHotel,MAX_ADMINS,"admins");
                 break;
             case 2:
-                createPerson(employeesInHotel,MAX_EMPLOYEES,"employee");
+                createPerson(employeesInHotel,MAX_EMPLOYEES,"employees");
         }
     }
 
     public <T extends Collection> void createPerson(T arrayList, int maxNumber, String typeOfPerson){
 
         if(arrayList.size() == maxNumber){
-            View.getInstance().showError(" Sorry We're Not Looking For Any Admins At The Moment");
+            View.getInstance().showError(" Sorry We're Not Looking For Any "+ typeOfPerson+" At The Moment");
         }else{
             String name = View.getInstance().setName();
             long socialNumber = View.getInstance().setSocialNumber();

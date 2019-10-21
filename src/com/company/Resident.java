@@ -16,6 +16,6 @@ public class Resident extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Hi I Am A Resident, Andy");
+        return String.format("Hi I Am A Resident, " + getName());
     }
 }
