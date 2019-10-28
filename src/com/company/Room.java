@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Room implements Serializable {
 
@@ -13,6 +14,7 @@ public class Room implements Serializable {
     private ArrayList<Resident> residentsInRoom = new ArrayList<>();
     private int roomNumber;
     private RoomId roomType;
+
 
     public enum RoomId{
         SUITE("Suite",4),
@@ -44,6 +46,10 @@ public class Room implements Serializable {
         }
 
     }
+
+    /**
+     * Displays if room is empty or occupied.
+     */
 
     public void showRoomStatus(){
         if(residentsInRoom.size()== 0) {
@@ -80,9 +86,11 @@ public class Room implements Serializable {
      */
     public void showPeopleInRoom(){
 
+
         for(Resident resident: residentsInRoom){
+
             resident.showInfo(); View.getInstance().showMessage("And I Stay In Room: " + getRoomNumber() +
-                    " In a " + getRoomType());
+                    " In a " + getRoomType().roomIdType);
         }
     }
 
@@ -93,13 +101,6 @@ public class Room implements Serializable {
     public void setResidentsInRoom(Resident resident){
         residentsInRoom.add(resident);
     }
-
-    public void printResidents(){
-        for(Resident resident: residentsInRoom){
-            resident.showInfo();
-        }
-    }
-
 
 
 }
